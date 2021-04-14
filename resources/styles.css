@@ -8,6 +8,9 @@ main {
   box-sizing: border-box;
   position: relative;
 }
+
+/* Sun styles */
+
 sun {
   position: fixed;
   top: 20px;
@@ -120,5 +123,76 @@ sun beams beam:nth-of-type(10) {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Cloud Styles */
+
+clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 30vh;
+}
+clouds cloud {
+  position: fixed;
+  display: block;
+  width: 210px;
+  height: 70px;
+  background-color: #fff;
+  border-radius: 200px;
+  top: 10vh;
+  opacity: 1;
+}
+clouds cloud::after,
+clouds cloud::before {
+  content: "";
+  position: relative;
+  display: block;
+  top: -10px;
+  left: 10px;
+  height: 90px;
+  width: 110px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: rotate(70deg);
+}
+clouds cloud::after {
+  width: 130px;
+  height: 130px;
+  top: -135px;
+  left: auto;
+  right: -60px;
+  transform: rotate(70deg);
+  background-color: #fff;
+}
+
+clouds cloud:nth-of-type(1) {
+  /* background-color: crimson; */
+  animation: flow_cloud 25s linear 2s backwards infinite;
+}
+clouds cloud:nth-of-type(2) {
+  top: 18vh;
+  opacity: 0.85;
+  animation: flow_cloud 30s linear 12s backwards infinite;
+}
+clouds cloud:nth-of-type(3) {
+  top: 26vh;
+  opacity: 0.7;
+  animation: flow_cloud 45s linear 4s backwards infinite;
+}
+clouds cloud:nth-of-type(4) {
+  top: 40vh;
+  opacity: 0.4;
+  animation: flow_cloud 50s linear 25s backwards infinite;
+}
+
+@keyframes flow_cloud {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 100vw;
   }
 }
