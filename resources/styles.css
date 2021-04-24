@@ -208,24 +208,29 @@ waves {
   left: 0;
 }
 
-waves wave {
+
+/* Better wave svg still needed */
+waves img.wave {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 200px;
-  background: url(img/frame.svg);
-  /* background: url(img/wave.png); */
+  width: 200vw;
+  /* height: 300px; */
+  /* background: url(img/frame.svg); */
+  /* background: url(img/dual-wave.svg); */
   /* background-size: 1000px 100px; */
-  background-size: 1439px 200px;
+  /* background-size: 1439px 200px; */
   animation: wave_float 5s linear infinite;
 }
 
 @keyframes wave_float {
   0% {
-    background-position-x: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(30%);
   }
   100% {
-    background-position-x: 1439px;
+    transform: translateX(0) translateY(0);
   }
 }
