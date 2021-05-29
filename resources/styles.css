@@ -1,0 +1,296 @@
+body {
+  background-color: #2eb5e5;
+  margin: 0;
+}
+main {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sun styles */
+
+sun {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: lightyellow;
+  box-shadow: 0px 0px 40px 15px white;
+}
+sun beams {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  animation: beam_rotate infinite linear 50s;
+}
+sun beams beam {
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(82, 53, 53, 0) 100%
+  );
+  background: linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* margin-left: 10px; */
+  border-radius: 80% 80% 0 0;
+  position: absolute;
+  opacity: 0.1;
+}
+
+sun beams beam:nth-of-type(1) {
+  height: 170px;
+  width: 30px;
+  transform: rotate(0deg);
+  top: 20px;
+  left: -15px;
+}
+sun beams beam:nth-of-type(2) {
+  height: 100px;
+  width: 8px;
+  transform: rotate(36deg);
+  top: 20px;
+  left: -50px;
+}
+sun beams beam:nth-of-type(3) {
+  height: 170px;
+  width: 50px;
+  transform: rotate(72deg);
+  top: -65px;
+  left: -110px;
+}
+sun beams beam:nth-of-type(4) {
+  height: 120px;
+  width: 14px;
+  transform: rotate(108deg);
+  top: -95px;
+  left: -90px;
+}
+sun beams beam:nth-of-type(5) {
+  height: 140px;
+  width: 30px;
+  transform: rotate(144deg);
+  top: -140px;
+  left: -65px;
+}
+sun beams beam:nth-of-type(6) {
+  height: 90px;
+  width: 50px;
+  transform: rotate(180deg);
+  top: -100px;
+  left: -25px;
+}
+sun beams beam:nth-of-type(7) {
+  height: 180px;
+  width: 10px;
+  transform: rotate(216deg);
+  top: -185px;
+  left: 60px;
+}
+sun beams beam:nth-of-type(8) {
+  height: 120px;
+  width: 30px;
+  transform: rotate(252deg);
+  top: -85px;
+  left: 60px;
+}
+sun beams beam:nth-of-type(9) {
+  height: 80px;
+  width: 10px;
+  transform: rotate(288deg);
+  top: -20px;
+  left: 60px;
+}
+sun beams beam:nth-of-type(10) {
+  height: 190px;
+  width: 23px;
+  transform: rotate(324deg);
+  top: 0px;
+  left: 60px;
+}
+@keyframes beam_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cloud Styles */
+
+clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 30vh;
+  z-index: 10;
+}
+clouds cloud {
+  position: fixed;
+  display: block;
+  width: 210px;
+  height: 70px;
+  background-color: #fff;
+  border-radius: 200px;
+  top: 10vh;
+  opacity: 1;
+}
+clouds cloud::after,
+clouds cloud::before {
+  content: "";
+  position: relative;
+  display: block;
+  top: -10px;
+  left: 10px;
+  height: 90px;
+  width: 110px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: rotate(70deg);
+}
+clouds cloud::after {
+  width: 130px;
+  height: 130px;
+  top: -135px;
+  left: auto;
+  right: -60px;
+  transform: rotate(70deg);
+  background-color: #fff;
+}
+
+clouds cloud:nth-of-type(1) {
+  /* background-color: crimson; */
+  animation: flow_cloud 25s linear -12.5s backwards infinite;
+}
+clouds cloud:nth-of-type(2) {
+  top: 18vh;
+  opacity: 0.85;
+  animation: flow_cloud 30s linear -5s backwards infinite;
+}
+clouds cloud:nth-of-type(3) {
+  top: 26vh;
+  opacity: 0.8;
+  animation: flow_cloud 45s linear -40s backwards infinite;
+}
+clouds cloud:nth-of-type(4) {
+  top: 40vh;
+  opacity: 0.6;
+  animation: flow_cloud 50s linear 0s backwards infinite;
+}
+
+@keyframes flow_cloud {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 100vw;
+  }
+}
+
+/* Waves styles */
+waves {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+}
+
+
+/* Better wave svg still needed */
+waves img.wave {
+  position: absolute;
+  bottom: -5vw;
+  left: 0;
+  width: 200%;
+  z-index: 100;
+  animation: wave-flow 30s infinite ease-in-out;
+}
+
+waves img.wave:nth-of-type(2){
+  bottom: -14vw;
+  width: 250%;
+  z-index: 200;
+  animation: wave-flow 26s -4s infinite ease-in-out;
+}
+
+waves img.wave:nth-of-type(3){
+  bottom: -24vw;
+  width: 300%;
+  z-index: 300;
+  animation: wave-flow 24s -3s infinite ease-in-out;
+}
+
+waves img.wave:nth-of-type(4){
+  bottom: -32vw;
+  width: 350%;
+  z-index: 400;
+  animation: wave-flow 20s -2.5s infinite ease-in-out;
+}
+
+@keyframes wave-flow {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  12.5% {
+    transform: translateX(-43.75%);
+  }
+  25% {
+    transform: translateX(-37.5%) translateY(-5%);
+  }
+  37.5% {
+    transform: translateX(-31.25%) translateY(-5%);
+  }
+  50% {
+    transform: translateX(-25%) translateY(0);
+  }
+  62.5% {
+    transform: translateX(-18.75%);
+  }
+  75% {
+    transform: translateX(-12.5%) translateY(-5%);
+  }
+  87.2% {
+    transform: translateX(-6.25%) translateY(-5%);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+/* Boat Styles */
+.boat{
+  position: absolute;
+  bottom: 7vw;
+  z-index: 250;
+  animation: boat 30s  infinite linear;
+}
+.boat img {
+  width: 10vw;
+}
+
+@keyframes boat {
+  0% {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(0vw) rotateZ(-5deg);
+  }
+  75% {
+    transform: translateX(50vw) rotateZ(5deg);
+  }
+  100% {
+    transform: translateX(100vw) rotateZ(-5deg);
+  }
+}
