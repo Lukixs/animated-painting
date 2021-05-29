@@ -172,22 +172,22 @@ clouds cloud::after {
 
 clouds cloud:nth-of-type(1) {
   /* background-color: crimson; */
-  animation: flow_cloud 25s linear 2s backwards infinite;
+  animation: flow_cloud 25s linear -12.5s backwards infinite;
 }
 clouds cloud:nth-of-type(2) {
   top: 18vh;
   opacity: 0.85;
-  animation: flow_cloud 30s linear 12s backwards infinite;
+  animation: flow_cloud 30s linear -5s backwards infinite;
 }
 clouds cloud:nth-of-type(3) {
   top: 26vh;
-  opacity: 0.7;
-  animation: flow_cloud 45s linear 4s backwards infinite;
+  opacity: 0.8;
+  animation: flow_cloud 45s linear -40s backwards infinite;
 }
 clouds cloud:nth-of-type(4) {
   top: 40vh;
-  opacity: 0.4;
-  animation: flow_cloud 50s linear 25s backwards infinite;
+  opacity: 0.6;
+  animation: flow_cloud 50s linear 0s backwards infinite;
 }
 
 @keyframes flow_cloud {
@@ -203,7 +203,6 @@ clouds cloud:nth-of-type(4) {
 waves {
   position: absolute;
   width: 100vw;
-  /* height: 100px; */
   bottom: 0;
   left: 0;
 }
@@ -212,54 +211,86 @@ waves {
 /* Better wave svg still needed */
 waves img.wave {
   position: absolute;
-  bottom: -20vh;
+  bottom: -5vw;
   left: 0;
   width: 200%;
-  z-index: 10;
-  animation: wave-flow 16s infinite ease-in-out;
+  z-index: 100;
+  animation: wave-flow 30s infinite ease-in-out;
 }
 
 waves img.wave:nth-of-type(2){
-  bottom: -25vh;
-  animation: wave-flow 14s -4s infinite ease-in-out;
+  bottom: -14vw;
+  width: 250%;
+  z-index: 200;
+  animation: wave-flow 26s -4s infinite ease-in-out;
 }
 
 waves img.wave:nth-of-type(3){
-  bottom: -30vh;
-
-  animation: wave-flow 12s -3s infinite ease-in-out;
+  bottom: -24vw;
+  width: 300%;
+  z-index: 300;
+  animation: wave-flow 24s -3s infinite ease-in-out;
 }
 
 waves img.wave:nth-of-type(4){
-  bottom: -35vh;
-  
-  animation: wave-flow 10s -2.5s infinite ease-in-out;
+  bottom: -32vw;
+  width: 350%;
+  z-index: 400;
+  animation: wave-flow 20s -2.5s infinite ease-in-out;
 }
 
 @keyframes wave-flow {
   0% {
     transform: translateX(-50%) translateY(0);
   }
+  12.5% {
+    transform: translateX(-43.75%);
+  }
   25% {
-    transform: translateX(-37.5%) translateY(-10%);
+    transform: translateX(-37.5%) translateY(-5%);
+  }
+  37.5% {
+    transform: translateX(-31.25%) translateY(-5%);
   }
   50% {
     transform: translateX(-25%) translateY(0);
   }
+  62.5% {
+    transform: translateX(-18.75%);
+  }
   75% {
-    transform: translateX(-12.5%) translateY(-10%);
+    transform: translateX(-12.5%) translateY(-5%);
+  }
+  87.2% {
+    transform: translateX(-6.25%) translateY(-5%);
   }
   100% {
     transform: translateX(0) translateY(0);
   }
 }
 
-@keyframes wave-rise {
+/* Boat Styles */
+.boat{
+  position: absolute;
+  bottom: 7vw;
+  z-index: 250;
+  animation: boat 30s  infinite linear;
+}
+.boat img {
+  width: 10vw;
+}
+
+@keyframes boat {
   0% {
-    /* margin-top: 50px; */
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(0vw) rotateZ(-5deg);
+  }
+  75% {
+    transform: translateX(50vw) rotateZ(5deg);
   }
   100% {
-    bottom: -10vmin;
+    transform: translateX(100vw) rotateZ(-5deg);
   }
-  
 }
